@@ -13,12 +13,10 @@ class Factory:
         self.name = name
         self.age = age
         self.spec = spec
-        
-    @staticmethod
+
     def create(self):
         anml = eval(f'{self.class_name.title()}("{self.name}", {self.age}, "{self.spec}")')
         return anml
-
 
 
 class Animal:
@@ -52,13 +50,11 @@ class Bird(Animal):
 dog = Dog('rex', 2, 'run')
 fish = Fish('dori', 1, 'salt water')
 bird = Bird('hugh', 3, 'stay home')
-
 anml = Factory('dog', 'boy', 5, 'sitdown')
-dog2 = Factory.create(anml)
-print(dog2.get_spec())
+dog2 = anml.create()
+anml2 = Factory('fish', 'Ruby', 2, 'fresh water')
+fish2 = anml2.create()
 
-# print(dog.get_spec(), fish.spec, bird.spec)
-
-for pet in [dog, fish, bird]:
+for pet in [dog, fish, bird, dog2, fish2]:
     print(pet.get_spec())
 
