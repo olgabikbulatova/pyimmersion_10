@@ -12,7 +12,7 @@ class Workers:
         self.bonus = bonus
 
     def pay_bonus(self):
-        return self.salary * (float(self.bonus[:-1])/100)
+        return {self.name: self.salary * (float(self.bonus[:-1]) / 100)}
 
 
 wrk_1 = Workers('Olga', 10000, '10.25%')
